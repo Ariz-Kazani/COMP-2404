@@ -10,7 +10,7 @@ namespace Gondor
     void fight(Character &fighter, Character &orc)
     {
         int fd = fighter.strike() + 1;
-        int od = orc.strike() + 1;
+        int od = orc.strike() - 1;
 
         orc.takeDamage(fd);
         fighter.takeDamage(od);
