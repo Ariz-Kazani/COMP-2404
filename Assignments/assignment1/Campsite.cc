@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "Category.h"
 #include "Campsite.h"
 #include "Camper.h"
@@ -42,6 +43,42 @@ bool Campsite::removeCamper(const string &name)
         return true;
     }
     return false;
+};
+
+void Campsite::print()
+{
+    cout << "Site Number: " << site_number << endl;
+    cout << "Category: " << cat::categoryToString(category) << endl;
+    cout << "Description: " << description << endl;
+    cout << "Max People: " << maxPeople << endl;
+    cout << "Price Per Day: " << price_per_day << endl;
+};
+
+void Campsite::printCampers()
+{
+    cout << "Displaying campers for site number: " << site_number << endl;
+    for (int i = 0; i < numCampers; i++)
+    {
+        cout << endl;
+        campers[i].print();
+    }
+};
+
+void Campsite::printCamper(Date &date)
+{
+    cout << "finding campers for date: " << endl;
+    date.print();
+    for (int i = 0; i < numCampers; i++)
+    {
+        Date sd = campers[i].getStartDate();
+        Date ed = campers[i].getEndDate();
+        if (!date.lessThan(sd) && date.lessThan(ed))
+        {
+            campers[i].print();
+            return;
+        }
+    }
+    cout << "No campers found for the given date" << endl;
 };
 
 /**
@@ -120,7 +157,8 @@ bool Campsite::camperExists(int &position, const string &name)
 };
 
 /**
- * A function that removes space in the campers array
+ * A function that removes a camper from the campers array
+ * at the given position and shifts the rest of the campers
  */
 void Campsite::removeSpace(int position)
 {

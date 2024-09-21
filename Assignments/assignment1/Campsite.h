@@ -11,9 +11,17 @@ using namespace std;
 class Campsite
 {
 public:
+    // constructor
     Campsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day);
+
+    // setters
     bool addCamper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
     bool removeCamper(const string &name);
+
+    // other
+    void print();
+    void printCampers();
+    void printCamper(Date &date);
 
 private:
     int site_number;
