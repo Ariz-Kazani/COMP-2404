@@ -15,9 +15,9 @@ public:
     Camper();
 
     // getters
-    Date getStartDate(); // not in specs
-    Date getEndDate();   // not in specs
-    string getName();    // not in specs
+    Date getStartDate();
+    Date getEndDate();
+    string getName();
 
     // other
     void print();

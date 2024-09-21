@@ -22,8 +22,8 @@ public:
     bool removeCamper(const string &name);
 
     // getters
-    int getSiteNum();       // not in specs
-    Category getCategory(); // not in specs
+    int getSiteNum();
+    Category getCategory();
 
     // other
     void print();

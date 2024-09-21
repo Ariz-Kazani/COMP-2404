@@ -32,7 +32,7 @@ private:
     Campsite campSites[MAX_ARRAY];
     int numSites;
 
-    bool campsiteExists(int &position, int site_number); // this function is not part of the specifications
+    bool campsiteExists(int &position, int site_number);
     void removeSpace(int position);
 };
 
