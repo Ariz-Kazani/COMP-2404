@@ -8,6 +8,7 @@
 #include "Category.h"
 
 using namespace std;
+using namespace cat;
 
 class Campground
 {
@@ -16,16 +17,16 @@ public:
     Campground::Campground();
 
     // setters
-    void addCampsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day);
+    void addCampsite(int site_number, Category category, string description, int maxPeople, double price_per_day);
     void removeCampsite(int site_number);
     void addCamper(int site_number, const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
     void removeCamper(int site_number, const string &name);
 
     // other
-    void printCampsite();
-    void PrintCampers(int site_number);
+    void printCampsites();
+    void printCampers(int site_number);
     void printCampers(Date &date);
-    void printCampsitesByCategory(cat::Category category);
+    void printCampsitesByCategory(Category category);
 
 private:
     Campsite campSites[MAX_ARRAY];

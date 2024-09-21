@@ -8,21 +8,22 @@
 #include "Date.h"
 
 using namespace std;
+using namespace cat;
 
 class Campsite
 {
 public:
     // constructor
     Campsite::Campsite();
-    Campsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day);
+    Campsite(int site_number, Category category, string description, int maxPeople, double price_per_day);
 
     // setters
     bool addCamper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
     bool removeCamper(const string &name);
 
     // getters
-    int getSiteNum();            // not in specs
-    cat::Category getCategory(); // not in specs
+    int getSiteNum();       // not in specs
+    Category getCategory(); // not in specs
 
     // other
     void print();
@@ -31,7 +32,7 @@ public:
 
 private:
     int site_number;
-    cat::Category category;
+    Category category;
     string description;
     int maxPeople;
     double price_per_day;

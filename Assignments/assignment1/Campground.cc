@@ -5,7 +5,7 @@ Campground::Campground()
     numSites = 0;
 };
 
-void Campground::addCampsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day)
+void Campground::addCampsite(int site_number, Category category, string description, int maxPeople, double price_per_day)
 {
     if (numSites < MAX_ARRAY)
     {
@@ -74,7 +74,7 @@ void Campground::removeCamper(int site_number, const string &name)
     }
 };
 
-void Campground::printCampsite()
+void Campground::printCampsites()
 {
     cout << "Displaying all campsites" << endl;
     for (int i = 0; i < numSites; i++)
@@ -83,7 +83,7 @@ void Campground::printCampsite()
     }
 };
 
-void Campground::PrintCampers(int site_number)
+void Campground::printCampers(int site_number)
 {
     int position = 0;
     if (campsiteExists(position, site_number))
@@ -106,9 +106,9 @@ void Campground::printCampers(Date &date)
     }
 };
 
-void Campground::printCampsitesByCategory(cat::Category category)
+void Campground::printCampsitesByCategory(Category category)
 {
-    cout << "Displaying campsites by category: " << cat::categoryToString(category) << endl;
+    cout << "Displaying campsites by category: " << categoryToString(category) << endl;
     for (int i = 0; i < numSites; i++)
     {
         if (campSites[i].getCategory() == category)

@@ -1,6 +1,6 @@
 #include "Campsite.h"
 
-Campsite::Campsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day)
+Campsite::Campsite(int site_number, Category category, string description, int maxPeople, double price_per_day)
 {
     this->site_number = site_number;
     this->category = category;
@@ -41,7 +41,7 @@ bool Campsite::removeCamper(const string &name)
 void Campsite::print()
 {
     cout << "Site Number: " << site_number << endl;
-    cout << "Category: " << cat::categoryToString(category) << endl;
+    cout << "Category: " << categoryToString(category) << endl;
     cout << "Description: " << description << endl;
     cout << "Max People: " << maxPeople << endl;
     cout << "Price Per Day: " << price_per_day << endl;
@@ -79,7 +79,7 @@ int Campsite::getSiteNum()
     return site_number;
 }
 
-cat::Category Campsite::getCategory()
+Category Campsite::getCategory()
 {
     return category;
 };
