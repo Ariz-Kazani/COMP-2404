@@ -27,9 +27,6 @@ bool Campsite::addCamper(const string &name, const string &plate_number, int num
         int position;
         if (getVacancy(position, check_in, check_out))
         {
-            cout << endl
-                 << "position: " << position << endl
-                 << endl;
             makeSpace(position);
             campers[position] = Camper(name, plate_number, num_people, check_in, check_out);
             numCampers++;
@@ -114,27 +111,28 @@ bool Campsite::getVacancy(int &position, Date check_in, Date check_out)
     for (int i = 0; i < numCampers - 2; i++)
     {
         Date prevCamperED = campers[i].getEndDate();
-        if (!bookingsNotClash(prevCamperED, check_in))
+        if (bookingsNotClash(prevCamperED, check_in))
         {
-            continue;
-        }
-        Date nextCamperSD = campers[i + 1].getEndDate();
-        if (bookingsNotClash(check_out, nextCamperSD))
-        {
-            position = i + 1;
-            return true;
-        }
-        else
-        {
-            return false;
+            Date nextCamperSD = campers[i + 1].getEndDate();
+            if (bookingsNotClash(check_out, nextCamperSD))
+            {
+                position = i + 1;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
+
     Date prevCamperED = campers[numCampers - 1].getEndDate();
-    if (bookingsNotClash(check_in, prevCamperED))
+    if (bookingsNotClash(prevCamperED, check_in))
     {
         position = numCampers;
         return true;
     }
+
     return false;
 };
 
