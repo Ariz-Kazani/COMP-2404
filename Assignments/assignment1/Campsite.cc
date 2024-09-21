@@ -22,11 +22,14 @@ Campsite::Campsite()
 
 bool Campsite::addCamper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out)
 {
-    if (numCampers < MAX_ARRAY || num_people <= maxPeople)
+    if (numCampers < MAX_ARRAY && num_people <= maxPeople)
     {
         int position;
         if (getVacancy(position, check_in, check_out))
         {
+            cout << endl
+                 << "position: " << position << endl
+                 << endl;
             makeSpace(position);
             campers[position] = Camper(name, plate_number, num_people, check_in, check_out);
             numCampers++;
@@ -50,11 +53,12 @@ bool Campsite::removeCamper(const string &name)
 
 void Campsite::print()
 {
+    cout << fixed << setprecision(2);
     cout << "Site Number: " << site_number << endl;
     cout << "Category: " << categoryToString(category) << endl;
     cout << "Description: " << description << endl;
     cout << "Max People: " << maxPeople << endl;
-    cout << "Price Per Day: " << price_per_day << endl;
+    cout << "Price per Day: $" << price_per_day << endl;
 };
 
 void Campsite::printCampers()
@@ -99,7 +103,7 @@ Category Campsite::getCategory()
  * returns true if the campsite is available for the given date range
  * position is the index of the campsite in the campers Sarray
  */
-bool Campsite::getVacancy(int position, Date check_in, Date check_out)
+bool Campsite::getVacancy(int &position, Date check_in, Date check_out)
 {
     Date nextCamperSD = campers[0].getStartDate();
     if (numCampers == 0 || bookingsNotClash(check_out, nextCamperSD))
@@ -117,7 +121,7 @@ bool Campsite::getVacancy(int position, Date check_in, Date check_out)
         Date nextCamperSD = campers[i + 1].getEndDate();
         if (bookingsNotClash(check_out, nextCamperSD))
         {
-            position = i;
+            position = i + 1;
             return true;
         }
         else
@@ -163,6 +167,7 @@ bool Campsite::camperExists(int &position, const string &name)
     {
         if (campers[i].getName() == name)
         {
+            position = i;
             return true;
         }
     }
