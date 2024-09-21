@@ -1,11 +1,4 @@
-#include <string>
-#include <iostream>
-#include "Category.h"
 #include "Campsite.h"
-#include "Camper.h"
-#include "defs.h"
-
-using namespace std;
 
 Campsite::Campsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day)
 {

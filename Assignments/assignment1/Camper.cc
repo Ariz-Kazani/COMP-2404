@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
 #include "Camper.h"
-#include "Date.h"
-
-using namespace std;
 
 Camper::Camper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out)
 {

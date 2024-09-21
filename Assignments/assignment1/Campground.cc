@@ -1,9 +1,4 @@
-#include <iostream>
 #include "Campground.h"
-#include "defs.h"
-#include "Campsite.h"
-
-using namespace std;
 
 Campground::Campground()
 {

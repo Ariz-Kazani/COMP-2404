@@ -5,6 +5,7 @@
 #include "Category.h"
 #include "Camper.h"
 #include "defs.h"
+#include "Date.h"
 
 using namespace std;
 
