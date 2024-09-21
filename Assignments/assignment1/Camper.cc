@@ -7,7 +7,7 @@ Camper::Camper(const string &name, const string &plate_number, int num_people, D
     this->num_people = num_people;
     this->check_in = check_in;
     this->check_out = check_out;
-}
+};
 
 Camper::Camper()
 {
@@ -16,22 +16,22 @@ Camper::Camper()
     this->num_people = 1;
     this->check_in = Date();
     this->check_out = Date();
-}
+};
 
 Date Camper::getStartDate()
 {
     return check_in;
-}
+};
 
 Date Camper::getEndDate()
 {
     return check_out;
-}
+};
 
 string Camper::getName()
 {
     return name;
-}
+};
 
 void Camper::print()
 {
@@ -42,4 +42,4 @@ void Camper::print()
     check_in.print();
     cout << "Check Out: " << endl;
     check_out.print();
-}
+};

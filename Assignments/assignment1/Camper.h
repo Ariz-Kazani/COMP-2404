@@ -11,8 +11,8 @@ class Camper
 {
 public:
     // constructor
-    Camper::Camper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
-    Camper::Camper();
+    Camper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
+    Camper();
 
     // getters
     Date getStartDate(); // not in specs

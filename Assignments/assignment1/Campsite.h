@@ -14,7 +14,7 @@ class Campsite
 {
 public:
     // constructor
-    Campsite::Campsite();
+    Campsite(); // not in specs
     Campsite(int site_number, Category category, string description, int maxPeople, double price_per_day);
 
     // setters

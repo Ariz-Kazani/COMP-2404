@@ -14,7 +14,7 @@ class Campground
 {
 public:
     // constructors
-    Campground::Campground();
+    Campground();
 
     // setters
     void addCampsite(int site_number, Category category, string description, int maxPeople, double price_per_day);

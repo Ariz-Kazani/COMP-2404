@@ -132,7 +132,7 @@ bool Campground::campsiteExists(int &position, int site_number)
         }
     }
     return false;
-}
+};
 
 /**
  * A function that removes a campsite from the campsite array
@@ -143,4 +143,4 @@ void Campground::removeSpace(int position)
     {
         campSites[i] = campSites[i + 1];
     }
-}
+};

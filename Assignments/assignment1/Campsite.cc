@@ -10,6 +10,16 @@ Campsite::Campsite(int site_number, Category category, string description, int m
     this->numCampers = 0;
 };
 
+Campsite::Campsite()
+{
+    this->site_number = 0;
+    this->category = tent;
+    this->description = "Invalid ground";
+    this->maxPeople = 1;
+    this->price_per_day = 1;
+    this->numCampers = 0;
+};
+
 bool Campsite::addCamper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out)
 {
     if (numCampers < MAX_ARRAY || num_people <= maxPeople)
@@ -77,7 +87,7 @@ void Campsite::printCamper(Date &date)
 int Campsite::getSiteNum()
 {
     return site_number;
-}
+};
 
 Category Campsite::getCategory()
 {
