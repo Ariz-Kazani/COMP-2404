@@ -7,7 +7,8 @@ Campground::Campground()
 
 void Campground::addCampsite(int site_number, Category category, string description, int maxPeople, double price_per_day)
 {
-    if (numSites < MAX_ARRAY)
+    int temp = 0;
+    if (numSites < MAX_ARRAY && !campsiteExists(temp, site_number))
     {
         campSites[numSites] = Campsite(site_number, category, description, maxPeople, price_per_day);
         numSites++;
