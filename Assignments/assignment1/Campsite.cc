@@ -81,6 +81,16 @@ void Campsite::printCamper(Date &date)
     cout << "No campers found for the given date" << endl;
 };
 
+int Campsite::getSiteNum()
+{
+    return site_number;
+}
+
+cat::Category Campsite::getCategory()
+{
+    return category;
+};
+
 /**
  * A function that checks if a campsite can be booked for a given date range
  * returns true if the campsite is available for the given date range
