@@ -13,6 +13,7 @@ class Campsite
 public:
     Campsite(int site_number, cat::Category category, string description, int maxPeople, double price_per_day);
     bool addCamper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out);
+    bool removeCamper(const string &name);
 
 private:
     int site_number;
@@ -22,6 +23,13 @@ private:
     double price_per_day;
     Camper campers[MAX_ARRAY];
     int numCampers;
+
+    // helper functions not a part of the assignment specifications
+    bool getVacancy(int position, Date check_in, Date check_out); // not in specs
+    bool bookingsNotClash(Date &endDate, Date &startDate);        // not in specs
+    void makeSpace(int position);                                 // not in specs
+    bool camperExists(int &position, const string &name);         // not in specs
+    void removeSpace(int position);                               // not in specs
 };
 
 #endif

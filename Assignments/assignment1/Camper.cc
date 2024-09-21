@@ -7,20 +7,35 @@ using namespace std;
 
 Camper::Camper(const string &name, const string &plate_number, int num_people, Date check_in, Date check_out)
 {
-    Camper::name = name;
-    Camper::plate_number = plate_number;
-    Camper::num_people = num_people;
-    Camper::check_in = check_in;
-    Camper::check_out = check_out;
+    this->name = name;
+    this->plate_number = plate_number;
+    this->num_people = num_people;
+    this->check_in = check_in;
+    this->check_out = check_out;
 }
 
 Camper::Camper()
 {
-    Camper::name = "dummy";
-    Camper::plate_number = "dummy";
-    Camper::num_people = 1;
-    Camper::check_in = Date();
-    Camper::check_out = Date();
+    this->name = "dummy";
+    this->plate_number = "dummy";
+    this->num_people = 1;
+    this->check_in = Date();
+    this->check_out = Date();
+}
+
+Date Camper::getStartDate()
+{
+    return check_in;
+}
+
+Date Camper::getEndDate()
+{
+    return check_out;
+}
+
+string Camper::getName()
+{
+    return name;
 }
 
 void Camper::print()
