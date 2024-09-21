@@ -15,6 +15,10 @@ Ariz Kazani (101311311)
 
 Enter the directory of the project using the terminal and enter the command `make`. This will compile and link all of the files. After that is complete, run `./a1` to run the program.
 
+# Notes
+
+The functions outlined for the Date class were already completed, I just had to add them to the header file.
+
 # Files
 
 There are no files that deviate from the specifications, so I wont be explaining them.
