@@ -1,4 +1,4 @@
-#include "File.h";
+#include "File.h"
 
 File::File(string name, string content, Date &date)
 {
