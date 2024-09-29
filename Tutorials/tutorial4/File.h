@@ -11,13 +11,7 @@ class File
 {
 public:
     File(string name, string content, Date &date);
-
-    // getters
-    Date *getDate();   // not in specs
-    string *getName(); // not in specs
-    bool lessThan(const Date &date);
-
-    // print statements
+    bool lessThan(Date &date);
     void print();
     void printContents();
 
