@@ -8,42 +8,42 @@
 
 using namespace std;
 
-class Date {
-		
-	public:
-		//constructor
-		Date();
-		Date(int year, int month, int day);
-		Date( Date&);
-		
-		//setters
-		void setDay( int);
-		void setMonth(int);
-		void setYear(int);
-		void setDate(int, int, int);
-		void setDate(Date&);
-		
-		//getters
-		int getDay() ;
-		int getMonth() ;
-		int getYear() ;
-		string getMonthName() ;
-		
-		//other
-		void incDate();
-		void addDays(int);
-		bool lessThan( Date& d) ;
-		bool equals( Date& d) ;
-		void print() ;
-	
-	private:
-		//functions
-		int getMaxDay() ;	
-	
-		//variables
-		int day;
-		int month;
-		int year;
-	
+class Date
+{
+
+public:
+	// constructor
+	Date();
+	Date(int year, int month, int day);
+	Date(Date &);
+
+	// setters
+	void setDay(int);
+	void setMonth(int);
+	void setYear(int);
+	void setDate(int, int, int);
+	void setDate(Date &);
+
+	// getters
+	int getDay();
+	int getMonth();
+	int getYear();
+	string getMonthName();
+
+	// other
+	void incDate();
+	void addDays(int);
+	bool lessThan(const Date &d); // changes this line
+	bool equals(Date &d);
+	void print();
+
+private:
+	// functions
+	int getMaxDay();
+
+	// variables
+	int day;
+	int month;
+	int year;
 };
 #endif
