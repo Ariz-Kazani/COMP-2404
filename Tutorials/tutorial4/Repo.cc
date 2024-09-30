@@ -59,3 +59,16 @@ void Repo::printFiles()
         cout << endl;
     }
 }
+
+void Repo::printContents(int index)
+{
+    File *f = fl->get(index);
+    if (f == nullptr)
+    {
+        cout << "File not found" << endl;
+    }
+    else
+    {
+        f->printContents();
+    }
+}
