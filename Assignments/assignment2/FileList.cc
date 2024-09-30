@@ -16,13 +16,13 @@ bool FileList::add(File *p)
 {
 	if (numFiles >= MAX_ARRAY)
 		return false;
+	int index = numFiles;
 	list[numFiles++] = p;
-	int index = numFiles - 1;
 	while (index > 0 && list[index]->lessThan(*list[index - 1]->getDate()))
 	{
 		File *temp = list[index];
 		list[index] = list[index - 1];
-		list[index--] = temp;
+		list[--index] = temp;
 	}
 	return true;
 }
@@ -32,11 +32,12 @@ File *FileList::remove(int index)
 	if (index < 0 || index >= numFiles)
 		return nullptr;
 	File *temp = list[index];
-	for (int i = index; i < numFiles - 1; ++i)
+	numFiles--;
+	list[index] = nullptr;
+	for (int i = index; i < numFiles; i++)
 	{
 		list[i] = list[i + 1];
 	}
-	numFiles--;
 	return temp;
 }
 
@@ -49,16 +50,15 @@ File *FileList::remove(string name)
 		if (*list[i]->getName() == name)
 		{
 			temp = list[i];
+			list[i] = nullptr;
 			numFiles--;
 			break;
 		}
 	}
-
 	for (; i < numFiles; i++)
 	{
 		list[i] = list[i + 1];
 	}
-
 	return temp;
 }
 
@@ -77,6 +77,15 @@ File *FileList::get(string name)
 			return list[i];
 	}
 	return nullptr;
+}
+
+void FileList::clearAll()
+{
+	for (int i = 0; i < numFiles; i++)
+	{
+		delete list[i];
+	}
+	numFiles = 0;
 }
 
 bool FileList::isFull()

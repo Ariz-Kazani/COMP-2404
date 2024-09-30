@@ -26,6 +26,7 @@ public:
     File *get(string);
     File *remove(int);
     File *remove(string);
+    void clearAll(); // not in specs
 
     int size();
     bool isFull();

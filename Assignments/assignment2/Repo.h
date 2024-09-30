@@ -21,6 +21,7 @@ public:
     int getNumFiles();
     void print();
     void printFiles();
+    void printContents(int index);
 
 private:
     string title;

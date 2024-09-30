@@ -9,6 +9,7 @@ Repo::Repo(string title, string owner)
 
 Repo::~Repo()
 {
+    fl->clearAll();
     delete fl;
 }
 
@@ -42,17 +43,32 @@ int Repo::getNumFiles()
 
 void Repo::print()
 {
-    cout << "Title: " << title << endl;
-    cout << "Owner: " << owner << endl;
+    cout << "Title: " << this->title << endl;
+    cout << "Owner: " << this->owner << endl;
     cout << "Number of files: " << this->getNumFiles() << endl;
 }
 
 void Repo::printFiles()
 {
+    this->print();
+    cout << endl;
     for (int i = 0; i < this->getNumFiles(); i++)
     {
         cout << i << ") ";
         fl->get(i)->print();
         cout << endl;
+    }
+}
+
+void Repo::printContents(int index)
+{
+    File *f = fl->get(index);
+    if (f == nullptr)
+    {
+        cout << "File not found" << endl;
+    }
+    else
+    {
+        f->printContents();
     }
 }
