@@ -11,6 +11,7 @@ import time
 import csv
 import threading
 
+
 '''
 This class takes the place of sys.stdout. It intercepts whatever is
 being written to the console and writes it the console, a file, and
@@ -38,7 +39,7 @@ class Tee(object):
 		self.file.flush()
 		self.stdout.flush()
 		
-verbose = False
+verbose = True
 
 def kill_proc(proc, timeout):
 	# you must have done something wrong
@@ -48,7 +49,7 @@ def kill_proc(proc, timeout):
 
 # a run with timeout function 
 def run_with_timeout(cmd, timeout_sec, stdinput):
-	print("Running: ",cmd)
+	#print("Running: ",cmd)
 	proc = subprocess.Popen(cmd,stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	timeout = {"value": False}
 	timer = threading.Timer(timeout_sec, kill_proc, [proc, timeout])
@@ -56,11 +57,11 @@ def run_with_timeout(cmd, timeout_sec, stdinput):
 	(out, err) = proc.communicate(input = stdinput.encode("utf-8"))
 	out = out.decode("utf-8")
 	err = err.decode("utf-8")
-	if len(out) < 1000:
+	if len(out) < 2000:
 		print(out)
 	else:
 		#wow you printed a lot of stuff
-		print(out[:1000] + "...")
+		print(out[:2000] + "...")
 	if verbose:
 		print(err)
 	timer.cancel()
@@ -92,10 +93,13 @@ def run(cmd, time, stdinput="", testlist = []):
 		#save the last thing written to cout
 		for e in testlist:
 			if (out.find(e) == -1 and err.find(e) == -1):
-				print("'"+e+"' not found")
+				print("****ERROR****** "+e+" NOT found")
 			else:
-				print("'"+e+"' found, 2 marks")
+				print(e+" found, 2 marks")
 				score+=2
+		if (err.find("Invalid read")!=-1 or err.find("Invalid free")!=-1):
+			print("****ERROR****** Invalid read or double free found, score is 0")
+			score = 0
 		return score
 	else: 
 		print("Program exited with non-zero status, test failed")
@@ -103,8 +107,7 @@ def run(cmd, time, stdinput="", testlist = []):
 
 def test(dirname, outof):
 
-
-		
+	
 	#switch to directory dirname
 	os.chdir(dirname)
 	sys.stdout.flush()
@@ -119,34 +122,27 @@ def test(dirname, outof):
 		sys.stdout.flush()
 		if res:
 			# make command produced an error
+			# return with 0 marks
 			print("make: non-zero exit status {}".format(res))
 			#print("\n\n{stars}\n* Mark: {mark}/{outof}\n".format(stars="*"*75, mark=0, outof=outof))
 			#return
 		
 	score = 0
-	
-	#arguments are:
-	#<command, timeout, input, find in output, score per string found>
 		
-	args=['0','1','2','3']
-	output = [['Review', 'Playthrough', 'Podcast', 'picture'], ['Video', 'Title', 'CleverTitle', 'RCMP'],['Review', 'Playthrough', 'Podcast', 'picture'], ['Video', 'Title', 'CleverTitle', 'RCMP']]
-	out = ['stack object array','stack pointer array', 'heap object array', 'heap pointer array']
+	print("\nTesting Repo class\n")
+	score += run(["./test"], 5, '0', ["All repo titles found", "All file names found"]) #this should assign a grade based off the return value only
+	print("\nTesting Repo destructor\n")
+	score += run(["valgrind","./test"], 5, '1', ["All heap blocks were freed -- no leaks are possible"])
 	
-	for i in range(4):
-		print("\nTesting "+out[i]+'\n')
-		score += run(["valgrind","./test"], 5, " ".join([args[i]]+output[i]), output[i]+["All heap blocks were freed -- no leaks are possible"])
-
 
 	print("\n\n{stars}\n* Mark: {mark}/{outof}\n{stars}\n".format(stars="*"*75, mark=score, outof=outof))
 
 
 
 	
+
 def process_all():
-	global verbose
-
-	verbose = True
-
+	
 			
 	t = Tee()
 	
@@ -155,8 +151,7 @@ def process_all():
 	t.open('results.txt', 'w')
 	
 	dirname = 'tutorial4'
-	#dirname = '.'
-	test(dirname, 40)
+	test(dirname, 6)
 		
 	t.close()
 
