@@ -23,6 +23,7 @@ bool Repo::addFile(string name, string content, Date &date)
         return false;
     File *nf = new File(name, content, date);
     this->fl->add(nf);
+    return true;
 }
 
 bool Repo::removeFile(int index)

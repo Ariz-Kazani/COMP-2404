@@ -9,6 +9,7 @@ Repo::Repo(string title, string owner)
 
 Repo::~Repo()
 {
+    fl->clearAll();
     delete fl;
 }
 
@@ -23,6 +24,7 @@ bool Repo::addFile(string name, string content, Date &date)
         return false;
     File *nf = new File(name, content, date);
     this->fl->add(nf);
+    return true;
 }
 
 bool Repo::removeFile(int index)
@@ -41,13 +43,15 @@ int Repo::getNumFiles()
 
 void Repo::print()
 {
-    cout << "Title: " << title << endl;
-    cout << "Owner: " << owner << endl;
+    cout << "Title: " << this->title << endl;
+    cout << "Owner: " << this->owner << endl;
     cout << "Number of files: " << this->getNumFiles() << endl;
 }
 
 void Repo::printFiles()
 {
+    this->print();
+    cout << endl;
     for (int i = 0; i < this->getNumFiles(); i++)
     {
         cout << i << ") ";
