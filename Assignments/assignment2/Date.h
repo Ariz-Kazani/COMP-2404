@@ -33,7 +33,7 @@ public:
 	// other
 	void incDate();
 	void addDays(int);
-	bool lessThan(const Date &d);
+	bool lessThan(const Date &d); // changes this line
 	bool equals(Date &d);
 	void print();
 
