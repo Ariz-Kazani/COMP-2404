@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include "File.h"
 #include "FileList.h"
 #include "Date.h"
 
@@ -18,6 +17,7 @@ public:
     bool lessThan(Repo *repo); // explain this in readme
     bool addFile(string name, string content, Date &date);
     bool removeFile(int index);
+    string getTitle();
     int getNumFiles();
     void print();
     void printFiles();

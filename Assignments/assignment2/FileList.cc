@@ -33,7 +33,6 @@ File *FileList::remove(int index)
 		return nullptr;
 	File *temp = list[index];
 	numFiles--;
-	list[index] = nullptr;
 	for (int i = index; i < numFiles; i++)
 	{
 		list[i] = list[i + 1];
@@ -50,7 +49,6 @@ File *FileList::remove(string name)
 		if (*list[i]->getName() == name)
 		{
 			temp = list[i];
-			list[i] = nullptr;
 			numFiles--;
 			break;
 		}

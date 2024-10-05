@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 #include "defs.h"
 #include "File.h"
 
@@ -35,4 +34,5 @@ private:
     int numFiles;
     File **list;
 };
+
 #endif

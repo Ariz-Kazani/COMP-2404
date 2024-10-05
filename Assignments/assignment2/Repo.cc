@@ -72,3 +72,8 @@ void Repo::printContents(int index)
         f->printContents();
     }
 }
+
+string Repo::getTitle()
+{
+    return this->title;
+}
