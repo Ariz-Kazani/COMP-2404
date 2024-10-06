@@ -7,6 +7,7 @@ GetHub::GetHub()
 
 GetHub::~GetHub()
 {
+    repoList->clearAll();
     delete repoList;
 }
 
