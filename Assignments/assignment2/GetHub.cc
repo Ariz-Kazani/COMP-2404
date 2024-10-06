@@ -83,10 +83,16 @@ void GetHub::deleteFile(int repo, int file)
     if (thisRepo == nullptr)
     {
         cout << "Invalid Repo Index" << endl;
+        return;
+    }
+
+    if (thisRepo->removeFile(file))
+    {
+        cout << "File Removed Successfully" << endl;
     }
     else
     {
-        thisRepo->printContents(file);
+        cout << "File Could Not be Removed." << endl;
     }
 }
 
@@ -125,7 +131,7 @@ void GetHub::printRepo(int index)
     }
     else
     {
-        thisRepo->print();
+        thisRepo->printFiles();
     }
 }
 
