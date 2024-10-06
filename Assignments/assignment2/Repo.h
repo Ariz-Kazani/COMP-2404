@@ -22,6 +22,7 @@ public:
     void print();
     void printFiles();
     void printContents(int index);
+    bool isFull();
 
 private:
     string title;

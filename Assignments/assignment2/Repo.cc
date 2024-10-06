@@ -77,3 +77,8 @@ string Repo::getTitle()
 {
     return this->title;
 }
+
+bool Repo::isFull()
+{
+    return this->fl->isFull();
+}
