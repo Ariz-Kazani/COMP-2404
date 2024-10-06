@@ -86,7 +86,14 @@ void Control::printRepo()
 
 void Control::printFileContents()
 {
+    int repo, file;
     getHub.printRepos();
+    cout << "Enter repo number: ";
+    view.getNumber(repo);
+    getHub.printRepo(repo);
+    cout << "Enter a file number: ";
+    view.getNumber(file);
+    getHub.printFileContents(repo, file);
 }
 
 void Control::removeRepo()
@@ -102,8 +109,12 @@ void Control::removeRepo()
 void Control::removeFile()
 {
     int repoIndex, fileIndex;
-    cout << "Enter the Index of the Repo and File You Want to Remove in that order.";
-    cin >> repoIndex >> fileIndex;
+    printRepos();
+    cout << "Enter an index of a repo: ";
+    view.getNumber(repoIndex);
+    getHub.printRepo(repoIndex);
+    cout << "Enter an index of a file: ";
+    view.getNumber(fileIndex);
     getHub.deleteFile(repoIndex, fileIndex);
 }
 
