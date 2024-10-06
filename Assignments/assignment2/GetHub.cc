@@ -75,6 +75,20 @@ void GetHub::addFileHelper(Repo *repo, const string &title, const string &conten
     }
 }
 
+void GetHub::deleteFile(int repo, int file)
+{
+    Repo *thisRepo = repoList->get(repo);
+
+    if (thisRepo == nullptr)
+    {
+        cout << "Invalid Repo Index" << endl;
+    }
+    else
+    {
+        thisRepo->printContents(file);
+    }
+}
+
 int GetHub::getNumRepos()
 {
     return this->repoList->size();
