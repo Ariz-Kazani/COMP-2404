@@ -9,24 +9,24 @@
 
 using namespace std;
 
-class List {
-		
-	public:
-		//constructor
-		List();
-				
-		//destructor
-		~List();
-		
-		//other
-		bool add(int);
-		int get(int) ;
-		int remove(int);
-		int size();
-		bool isFull();
-	
-	private:
-		int numInts;
-		int* list;
+class List
+{
+public:
+	// constructor
+	List();
+
+	// destructor
+	~List();
+
+	// other
+	bool add(int);
+	int get(int);
+	int remove(int);
+	int size();
+	bool isFull();
+
+private:
+	int numInts;
+	int *list;
 };
 #endif
