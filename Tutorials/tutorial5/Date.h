@@ -29,16 +29,25 @@ public:
 	int getMonth();
 	int getYear();
 	string getMonthName();
-	string getMonthName() const;
 
 	// other
 	void incDate();
 	void addDays(int);
 	bool lessThan(const Date &d);
 	bool equals(const Date &d);
+	void print();
+
+	// getters
+	int getDay() const;
+	int getMonth() const;
+	int getYear() const;
+	string getMonthName() const;
+
+	// other
+	void incDate() const;
+	void addDays(int) const;
 	bool lessThan(const Date &d) const;
 	bool equals(const Date &d) const;
-	void print();
 	void print() const;
 
 private:

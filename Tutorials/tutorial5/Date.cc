@@ -134,6 +134,20 @@ int Date::getMaxDay()
 	}
 }
 
+void Date::incDate() const
+{
+	// cout<<endl<<"in incDate"<<endl;
+	Date temp(year, month, day);
+	temp.incDate();
+}
+
+void Date::addDays(int num) const
+{
+	// cout<<endl<<"in addDays"<<endl;
+	Date temp(year, month, day);
+	temp.addDays(num);
+}
+
 bool Date::lessThan(const Date &d) const
 {
 	if (year < d.year)
@@ -159,6 +173,9 @@ void Date::print() const
 	cout << getMonthName() << " " << day << ", " << year;
 }
 
+int Date::getDay() const { return day; }
+int Date::getMonth() const { return month; }
+int Date::getYear() const { return year; }
 string Date::getMonthName() const
 {
 	string months[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
