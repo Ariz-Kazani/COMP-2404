@@ -2,7 +2,7 @@
 
 RepoList::RepoList()
 {
-    Node *dummy = new Node;
+    dummy = new Node;
     dummy->next = dummy;
     dummy->prev = dummy;
     dummy->data = nullptr;
@@ -11,23 +11,22 @@ RepoList::RepoList()
 
 RepoList::RepoList(RepoList &other)
 {
-    Node *dummy = new Node;
+    dummy = new Node;
     dummy->next = dummy;
     dummy->prev = dummy;
     dummy->data = nullptr;
 
-    Node *current = dummy;
     Node *otherCurrent = other.dummy->next;
-    while (current != other.dummy)
+    while (otherCurrent != other.dummy)
     {
         Node *newNode = new Node;
         newNode->data = otherCurrent->data;
         newNode->next = dummy;
-        newNode->prev = current;
-        current->next = newNode;
+        newNode->prev = dummy->prev;
+        dummy->prev->next = newNode;
         dummy->prev = newNode;
-        current = newNode;
         otherCurrent = otherCurrent->next;
+        ++numRepos;
     }
 }
 
@@ -45,11 +44,13 @@ RepoList::~RepoList()
 
 bool RepoList::add(Repo *repo)
 {
+    if (repo == nullptr)
+        return false;
     Node *newNode = new Node;
     newNode->data = repo;
-    newNode->next = dummy;
-    newNode->prev = dummy->prev;
+    newNode->next = dummy->prev->next;
     dummy->prev->next = newNode;
+    newNode->prev = dummy->prev;
     dummy->prev = newNode;
     ++numRepos;
     return true;
@@ -66,6 +67,7 @@ Repo *RepoList::get(const string &title)
         }
         cur = cur->next;
     }
+
     return nullptr;
 }
 
@@ -126,7 +128,7 @@ RepoList::Node *RepoList::getNode(int index) const
 {
     if (index < 0 || index >= numRepos)
         return nullptr;
-    Node *cur;
+    Node *cur = nullptr;
 
     if (index < numRepos / 2)
     {

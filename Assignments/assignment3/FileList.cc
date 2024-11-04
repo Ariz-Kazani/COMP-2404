@@ -18,7 +18,7 @@ FileList::FileList(FileList &other)
 
     Node *current = dummy;
     Node *otherCurrent = other.dummy->next;
-    while (current != other.dummy)
+    while (otherCurrent != other.dummy)
     {
         Node *newNode = new Node;
         newNode->data = otherCurrent->data;
@@ -28,6 +28,7 @@ FileList::FileList(FileList &other)
         dummy->prev = newNode;
         current = newNode;
         otherCurrent = otherCurrent->next;
+        ++numFiles;
     }
 }
 
@@ -45,8 +46,8 @@ FileList::~FileList()
 
 bool FileList::add(File *file)
 {
-    Node *cur = dummy;
-    while (cur->next != dummy && cur->data->lessThan(*file))
+    Node *cur = dummy->next;
+    while (cur != dummy && cur->data->lessThan(*file))
     {
         cur = cur->next;
     }
@@ -140,8 +141,12 @@ FileList::Node *FileList::getNode(int index) const
             cur = cur->prev;
         }
     }
-
     return cur;
+}
+
+int FileList::size() const
+{
+    return numFiles;
 }
 
 void FileList::print() const

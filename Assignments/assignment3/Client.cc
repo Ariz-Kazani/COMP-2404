@@ -12,11 +12,12 @@ Client::~Client()
 
 bool Client::cloneRepo(const GetHub &getHub, int index)
 {
-    Repo **newRepo = nullptr;
-    if (getHub.download(index, newRepo))
+    Repo *newRepo = nullptr;
+    if (getHub.download(index, &newRepo))
     {
-        delete repo;
-        repo = new Repo(**newRepo);
+        if (repo != nullptr)
+            delete repo;
+        repo = new Repo(*newRepo);
         return true;
     }
     return false;
