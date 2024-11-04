@@ -15,15 +15,13 @@ class Client
 public:
     // constructor
     Client();
-    void cloneRepo(GetHub &getHub, int index);
+    ~Client();
+    bool cloneRepo(const GetHub &getHub, int index);
     void printRepo() const;
-    void printFileContents() const;
+    void printFileContents(int index) const;
 
 private:
-    string name;
-    string email;
-    string password;
-    GetHub getHub;
+    Repo *repo;
 };
 
 #endif

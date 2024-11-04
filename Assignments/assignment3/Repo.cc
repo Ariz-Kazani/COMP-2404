@@ -46,7 +46,7 @@ int Repo::getNumFiles() const
 	return fileList->size();
 }
 
-bool Repo::addFile(const string &title, const string &content, Date &d)
+bool Repo::addFile(const string &title, const string &content, const Date &d)
 {
 	if (fileList->isFull())
 		return false;

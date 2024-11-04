@@ -28,7 +28,7 @@ public:
 
 	// other
 	int getNumFiles() const;
-	bool addFile(const string &title, const string &content, Date &date);
+	bool addFile(const string &title, const string &content, const Date &date);
 	bool removeFile(int);
 	// File* getFile(int) const;
 	bool lessThan(const Repo &) const;

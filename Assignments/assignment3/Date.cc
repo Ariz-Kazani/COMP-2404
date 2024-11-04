@@ -12,7 +12,7 @@ Date::Date(int y, int m, int d)
 	setDate(y, m, d);
 }
 
-Date::Date(Date &d)
+Date::Date(const Date &d)
 {
 	setDate(d.year, d.month, d.day);
 	// cout<<endl<<"in Date COPY ctor"<<endl;

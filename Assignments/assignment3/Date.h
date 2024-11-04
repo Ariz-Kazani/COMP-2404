@@ -15,7 +15,7 @@ public:
 	// constructor
 	Date();
 	Date(int year, int month, int day);
-	Date(Date &);
+	Date(const Date &);
 
 	// setters
 	void setDay(int);

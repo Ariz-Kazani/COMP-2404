@@ -20,20 +20,20 @@ public:
 	// adders and removers
 	void addRepo(const string &repo, const string &owner);
 	void deleteRepo(int repo);
-	int getNumRepos() { return repoList->size(); }
+	int getNumRepos() const { return repoList->size(); }
 
-	void addFile(const string &repo, const string &title, const string &content, Date &date);
+	void addFile(const string &repo, const string &title, const string &content, const Date &date);
 
-	void addFile(int repo, const string &title, const string &content, Date &date);
+	void addFile(int repo, const string &title, const string &content, const Date &date);
 	void deleteFile(int repo, int file);
 
 	// Client services (no Client class yet)
-	bool download(int repo, Repo **);
+	bool download(int repo, Repo **) const;
 
 	// other
-	void printRepos();
-	void printRepo(int repo);
-	void printFileContents(int repo, int file);
+	void printRepos() const;
+	void printRepo(int repo) const;
+	void printFileContents(int repo, int file) const;
 
 private:
 	RepoList *repoList;

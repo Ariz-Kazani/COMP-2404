@@ -14,7 +14,7 @@ class File
 
 public:
 	// constructor
-	File(const string &name, const string &content, Date &date);
+	File(const string &name, const string &content, const Date &date);
 
 	// copy constructor
 	File(File &e);

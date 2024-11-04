@@ -32,7 +32,7 @@ void GetHub::deleteRepo(int repo)
 	delete ch;
 }
 
-void GetHub::addFile(const string &repo, const string &title, const string &content, Date &date)
+void GetHub::addFile(const string &repo, const string &title, const string &content, const Date &date)
 {
 	Repo *ch = repoList->get(repo);
 	if (ch == nullptr)
@@ -47,7 +47,7 @@ void GetHub::addFile(const string &repo, const string &title, const string &cont
 	}
 }
 
-void GetHub::addFile(int repo, const string &title, const string &content, Date &date)
+void GetHub::addFile(int repo, const string &title, const string &content, const Date &date)
 {
 	Repo *ch = repoList->get(repo);
 	if (ch == nullptr)
@@ -77,7 +77,7 @@ void GetHub::deleteFile(int repo, int file)
 }
 
 // Client services
-bool GetHub::download(int repo, Repo **ch)
+bool GetHub::download(int repo, Repo **ch) const
 {
 	*ch = repoList->get(repo);
 	if (*ch == nullptr)
@@ -88,7 +88,7 @@ bool GetHub::download(int repo, Repo **ch)
 	return true;
 }
 
-void GetHub::printFileContents(int repo, int file)
+void GetHub::printFileContents(int repo, int file) const
 {
 	Repo *rep = repoList->get(repo);
 	if (rep == nullptr)
@@ -100,7 +100,7 @@ void GetHub::printFileContents(int repo, int file)
 }
 
 // other
-void GetHub::printRepos()
+void GetHub::printRepos() const
 {
 	cout << endl;
 	cout << "GetHub" << endl;
@@ -112,7 +112,7 @@ void GetHub::printRepos()
 	}
 	cout << endl;
 }
-void GetHub::printRepo(int repo)
+void GetHub::printRepo(int repo) const
 {
 	Repo *ch = repoList->get(repo);
 	if (ch == nullptr)
