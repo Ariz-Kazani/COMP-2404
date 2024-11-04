@@ -46,14 +46,16 @@ to run the program or `./a3test` to test the program
 - README.md (this file)
 
 - Repo.cc Repo.h
-  Used to create a list of files, to create a repository.
+    Used to create a list of files, to create a repository.
 
 - RepoList.cc RepoList.h
     List of repos
 
 - test.cc TestControl.cc TestControl.h Tester.cc Tester.h
-  Used for testing
+    Used for testing
 
 - View.cc View.h
-  Used for controlling the interaction between the user and the program.
+    Used for controlling the interaction between the user and the program.
 
+- a3 uml.drawio.svg
+    uml diagram of this assignment
