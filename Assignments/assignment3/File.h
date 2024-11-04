@@ -17,8 +17,8 @@ public:
 	File(const string &name, const string &content, Date &date);
 
 	// copy constructor
-	File(File &);
-	bool lessThan(File &) const;
+	File(File &e);
+	bool lessThan(const File &) const;
 	bool equals(const File &) const;
 
 	const string &getName() const

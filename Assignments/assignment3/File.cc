@@ -12,7 +12,7 @@ void File::print() const
 	cout << endl;
 }
 
-bool File::lessThan(File &e) const
+bool File::lessThan(const File &e) const
 {
 	// TODO: change this implementation
 	return e.getName() == name ? lastModified.lessThan(e.lastModified) : name < e.getName();

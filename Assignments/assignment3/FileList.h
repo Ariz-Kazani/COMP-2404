@@ -12,29 +12,39 @@ using namespace std;
 
 // TODO make this a linked list
 
-class FileList {
-		
+class FileList
+{
+
+public:
+	// constructor
+	FileList();
+	// copy constructor
+	FileList(FileList &);
+
+	// destructor
+	~FileList();
+
+	// other
+	bool add(File *);
+	File *get(const string &name);
+	File *get(int);
+	File *remove(const string &name);
+	File *remove(int);
+	int size();
+	bool isFull();
+	void print();
+
+private:
+	class Node
+	{
 	public:
-		//constructor
-		FileList();
-		//copy constructor
-		FileList(FileList&);
-		
-		//destructor
-		~FileList();
-		
-		//other
-		bool add(File*);
-		File* get(const string& name) ;
-		File* get(int) ;
-		File* remove(const string& name);
-		File* remove(int);
-		int size();
-		bool isFull();
-		void print();
-	
-	private:
-		int numFiles;
-		File** files;
+		Node *next;
+		Node *prev;
+		File *data;
+	};
+	Node *dummy;
+	int numFiles;
+
+	Node *getNode(int index);
 };
 #endif

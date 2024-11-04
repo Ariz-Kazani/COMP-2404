@@ -8,40 +8,37 @@
 #include "FileList.h"
 #include "defs.h"
 
-
 using namespace std;
 
+class Repo
+{
 
-class Repo {
-		
-	public:
-		//constructor
-		Repo(const string& title, const string& owner);
-		//copy constructor
-		Repo(Repo&);
-		
-		//destructor
-		~Repo();
+public:
+	// constructor
+	Repo(const string &title, const string &owner);
+	// copy constructor
+	Repo(const Repo &);
 
-		//getter
-		const string& getTitle();
-		const string& getOwner();
-		
-		//other
-		int getNumFiles() ;
-		bool addFile(const string& title, const string& content, Date& date);
-		bool removeFile(int);
-		// File* getFile(int) const;
-		bool lessThan(Repo&) ;
-		void print() ;
-		void printFiles() ;
-		void printContents(int file) ;
+	// destructor
+	~Repo();
 
-	
-	private:
-		string title;
-		string owner;
-		FileList* fileList;
-	
+	// getter
+	const string &getTitle() const;
+	const string &getOwner() const;
+
+	// other
+	int getNumFiles() const;
+	bool addFile(const string &title, const string &content, Date &date);
+	bool removeFile(int);
+	// File* getFile(int) const;
+	bool lessThan(const Repo &) const;
+	void print() const;
+	void printFiles() const;
+	void printContents(int file) const;
+
+private:
+	string title;
+	string owner;
+	FileList *fileList;
 };
 #endif
