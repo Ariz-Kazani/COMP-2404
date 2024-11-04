@@ -8,6 +8,7 @@
 
 #include "GetHub.h"
 #include "View.h"
+#include "Client.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ private:
   void removeFile();
 
   // Client functions
+  Client client;
 
   // Client functions
   void downloadRepo();
