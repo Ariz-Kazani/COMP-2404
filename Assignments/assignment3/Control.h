@@ -11,49 +11,43 @@
 
 using namespace std;
 
-
 class Control
 {
-  public:
-    Control();
-    
-    void launch();
-    
+public:
+  Control();
 
-  private:
-	// GetHub functions
-    void printRepos();
-    void printRepo();
-    void printFileContents();
-	  void removeRepo();
-	  void removeFile();
+  void launch();
 
-    // Client functions
-    
-	// Client functions
-    void downloadRepo();
-    void printClientRepo();
-    void printClientFileContent();
+private:
+  // GetHub functions
+  void printRepos();
+  void printRepo();
+  void printFileContents();
+  void removeRepo();
+  void removeFile();
 
-    //helper function
-    void initGetHub();
+  // Client functions
 
-    GetHub getHub;
-    View view;
+  // Client functions
+  void downloadRepo();
+  void printClientRepo();
+  void printClientFileContent();
 
+  // helper function
+  void initGetHub();
 
-    static vector<string> menu;
+  GetHub getHub;
+  View view;
 
-    // Repo information
-    static const string repoTitles[5];
-    static const string owners[5];
+  static vector<string> menu;
 
-    // File information
-    static const string fileTitles[5][5];
-    static const string content[5][5];
-    static const Date dates[5][5];
+  // Repo information
+  static const string repoTitles[5];
+  static const string owners[5];
 
-
-	
+  // File information
+  static const string fileTitles[5][5];
+  static const string content[5][5];
+  static const Date dates[5][5];
 };
 #endif
