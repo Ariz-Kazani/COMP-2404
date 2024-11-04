@@ -2,15 +2,12 @@
 #ifndef FILELIST_H
 #define FILELIST_H
 
-#include <iostream>
 #include <string>
 #include <iomanip>
 #include "File.h"
 #include "defs.h"
 
 using namespace std;
-
-// TODO make this a linked list
 
 class FileList
 {
@@ -24,15 +21,20 @@ public:
 	// destructor
 	~FileList();
 
-	// other
 	bool add(File *);
-	File *get(const string &name);
-	File *get(int);
+
+	// getters
+	File *get(const string &name) const;
+	File *get(int) const;
+
+	// removers
 	File *remove(const string &name);
 	File *remove(int);
-	int size();
-	bool isFull();
-	void print();
+
+	// other
+	int size() const;
+	bool isFull() const;
+	void print() const;
 
 private:
 	class Node
@@ -45,6 +47,7 @@ private:
 	Node *dummy;
 	int numFiles;
 
-	Node *getNode(int index);
+	// helper functions
+	Node *getNode(int index) const;
 };
 #endif

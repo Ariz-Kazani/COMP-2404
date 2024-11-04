@@ -10,31 +10,40 @@
 
 using namespace std;
 
-// TODO make this a linked list
+class RepoList
+{
 
-class RepoList {
-		
+public:
+	// constructor
+	RepoList();
+	// copy constructor
+	RepoList(RepoList &);
+
+	// destructor
+	~RepoList();
+
+	// other
+	bool add(Repo *);
+	Repo *get(const string &title);
+	Repo *get(int);
+	Repo *remove(const string &title);
+	Repo *remove(int);
+	int size();
+	bool isFull();
+	void print();
+
+private:
+	class Node
+	{
 	public:
-		//constructor
-		RepoList();
-		//copy constructor
-		RepoList(RepoList&);
-		
-		//destructor
-		~RepoList();
-		
-		//other
-		bool add(Repo*);
-		Repo* get(const string& title) ;
-		Repo* get(int) ;
-		Repo* remove(const string& title);
-		Repo* remove(int);
-		int size();
-		bool isFull();
-		void print();
-	
-	private:
-		int numRepos;
-		Repo** repos;
+		Node *next;
+		Node *prev;
+		Repo *data;
+	};
+	Node *dummy;
+	int numRepos;
+
+	// helper functions
+	Node *getNode(int index) const;
 };
 #endif
