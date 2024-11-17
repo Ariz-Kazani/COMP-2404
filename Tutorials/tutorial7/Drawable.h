@@ -10,9 +10,9 @@ using namespace std;
 class Drawable
 {
 public:
-    Drawable(int layer) : layer(layer) {}
+    Drawable(int layer);
     virtual void draw(View &) = 0;
-    static int compare(Drawable *d1, Drawable *d2) { return d1->layer - d2->layer; }
+    static int compare(Drawable *d1, Drawable *d2);
 
 protected:
     int layer;

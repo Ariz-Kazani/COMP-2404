@@ -20,7 +20,7 @@ public:
 private:
     const char code = 'C';
     const int custLayer = 3;
-    int nextId;
+    int nextId = 0;
 };
 
 #endif
