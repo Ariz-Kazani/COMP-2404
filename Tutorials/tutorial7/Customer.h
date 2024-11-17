@@ -18,9 +18,9 @@ public:
     void resetNextId();
 
 private:
-    const char code = 'C';
-    const int custLayer = 3;
-    int nextId = 0;
+    static const char code = 'C';
+    static const int custLayer = 3;
+    static int nextId;
 };
 
 #endif

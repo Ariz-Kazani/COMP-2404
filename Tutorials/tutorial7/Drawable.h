@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "defs.h"
+#include "View.h"
 
 using namespace std;
 

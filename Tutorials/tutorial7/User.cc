@@ -1,8 +1,12 @@
 #include "User.h"
+#include <string>
 
-User::User(char code, int codeNum, string name, int rating, Location location)
+User::User(char code, int codeNum, std::string name, int rating, Location location)
 {
-    id = code + to_string(codeNum);
+    std::string ts = "";
+    ts.push_back(code);
+    // id = code + to_string(codeNum);
+    id = ts + std::to_string(codeNum);
     this->name = name;
     this->rating = rating;
     this->location = location;
@@ -16,14 +20,15 @@ bool User::setRating(int rating)
     }
 
     this->rating = rating;
+    return true;
 }
 
-bool User::setLocation(Location location)
+void User::setLocation(Location location)
 {
     this->location = location;
 }
 
-bool User::setLocation(int x, int y)
+void User::setLocation(int x, int y)
 {
     this->location = Location(x, y);
 }

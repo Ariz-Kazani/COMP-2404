@@ -1,14 +1,16 @@
 #include "Driver.h"
 
+int Driver::nextId = 1;
+
 Driver::Driver(string name, int rating, Size s, Location location) : User(code, nextId, name, rating, location), Drawable(driverLayer)
 {
     this->s = s;
     nextId++;
 }
 
-int Driver::compNames(Driver *c1, Driver *c2)
+int Driver::compRatings(Driver *c1, Driver *c2)
 {
-    return c1->name.compare(c2->name);
+    return c2->getRating() - c1->getRating();
 }
 
 void Driver::draw(View &view)
@@ -18,7 +20,7 @@ void Driver::draw(View &view)
 
 bool Driver::match(Size size, int rating)
 {
-    return s == size && this->rating + rating <= this->rating + 2;
+    return s == size && (this->rating + rating <= this->rating + 2);
 }
 
 int Driver::getDistance(Location location)

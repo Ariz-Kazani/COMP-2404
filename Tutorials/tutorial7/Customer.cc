@@ -1,4 +1,5 @@
 #include "Customer.h"
+int Customer::nextId = 1;
 
 Customer::Customer(string name, int rating, Location location) : User(code, nextId, name, rating, location), Drawable(custLayer)
 {

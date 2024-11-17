@@ -16,13 +16,14 @@ public:
     void draw(View &view);
     bool match(Size size, int rating);
     int getDistance(Location location);
-    static int compNames(Driver *d1, Driver *d2);
+    static int compRatings(Driver *d1, Driver *d2);
     void resetNextId();
 
 private:
-    const char code = 'D';
-    const int driverLayer = 1;
-    int nextId = 0;
+    static const char code = 'D';
+    static const int driverLayer = 1;
+    static int nextId;
+    int rating;
     Size s;
 };
 

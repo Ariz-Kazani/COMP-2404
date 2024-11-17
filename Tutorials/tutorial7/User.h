@@ -19,8 +19,8 @@ public:
 
     // setters
     bool setRating(int rating);
-    bool setLocation(Location location);
-    bool setLocation(int x, int y);
+    void setLocation(Location location);
+    void setLocation(int x, int y);
 
     // other
     void print();
