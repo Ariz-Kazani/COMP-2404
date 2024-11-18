@@ -15,12 +15,12 @@ int Driver::compRatings(Driver *c1, Driver *c2)
 
 void Driver::draw(View &view)
 {
-    view.drawDriver(location.getX(), location.getY(), code);
+    view.drawDriver(location.getX(), location.getY(), name[0]);
 }
 
 bool Driver::match(Size size, int rating)
 {
-    return s == size && (this->rating + rating <= this->rating + 2);
+    return s >= size && abs(this->rating - rating) <= 2;
 }
 
 int Driver::getDistance(const Location &location) const

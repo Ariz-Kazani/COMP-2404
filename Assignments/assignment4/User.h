@@ -20,7 +20,7 @@ public:
 
     // setters
     bool setRating(int rating);
-    void setLocation(Location location);
+    void setLocation(const Location &location);
     void setLocation(int x, int y);
 
     // other

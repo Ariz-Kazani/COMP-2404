@@ -17,8 +17,8 @@ public:
     RideShare();
     ~RideShare();
 
-    void addDriver(const string &name, Size size, int rating, const Location &location);
-    void addCustomer(const string &name, int rating, const Location &location);
+    bool addDriver(const string &name, Size size, int rating, const Location &location);
+    bool addCustomer(const string &name, int rating, const Location &location);
 
     Customer *getCustomer(const string &id) const;
     Driver *findRide(int rating, Size size, const Location &locations) const;

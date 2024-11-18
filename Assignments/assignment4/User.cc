@@ -21,9 +21,9 @@ bool User::setRating(int rating)
     return true;
 }
 
-void User::setLocation(Location location)
+void User::setLocation(const Location &location)
 {
-    this->location = location;
+    this->location = Location(location);
 }
 
 void User::setLocation(int x, int y)

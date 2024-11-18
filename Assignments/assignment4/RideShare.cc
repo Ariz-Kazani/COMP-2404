@@ -9,23 +9,31 @@ RideShare::RideShare()
 
 RideShare::~RideShare()
 {
+    drawables->clear(); // this has all of the elements so it clears everything
+
     delete customers;
     delete drivers;
     delete drawables;
 }
 
-void RideShare::addDriver(const string &name, Size size, int rating, const Location &location)
+bool RideShare::addDriver(const string &name, Size size, int rating, const Location &location)
 {
+    if (rating < 1 || rating > 5 || drivers->isFull() || drawables->isFull())
+        return false;
     Driver *d = new Driver(name, rating, size, location);
     drivers->add(d);
     drawables->add(d);
+    return true;
 }
 
-void RideShare::addCustomer(const string &name, int rating, const Location &location)
+bool RideShare::addCustomer(const string &name, int rating, const Location &location)
 {
+    if (rating < 1 || rating > 5 || customers->isFull() || drawables->isFull())
+        return false;
     Customer *c = new Customer(name, rating, location);
     customers->add(c);
     drawables->add(c);
+    return true;
 }
 
 Customer *RideShare::getCustomer(const string &id) const

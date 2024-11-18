@@ -10,7 +10,7 @@ int Customer::compNames(Customer *c1, Customer *c2)
 
 void Customer::draw(View &view)
 {
-    view.drawCustomer(location.getX(), location.getY(), code);
+    view.drawCustomer(location.getX(), location.getY(), name[0]);
 }
 
 void Customer::resetNextId()
