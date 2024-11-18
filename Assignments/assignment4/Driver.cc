@@ -32,3 +32,10 @@ void Driver::resetNextId()
 {
     nextId = 0;
 }
+
+void Driver::print() const
+{
+    cout << "Driver Details: " << endl;
+    User::print();
+    cout << "Size:     " << s << endl;
+}

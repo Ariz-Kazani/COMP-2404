@@ -21,6 +21,8 @@ public:
     static int compRatings(Driver *d1, Driver *d2);
     static void resetNextId();
 
+    void print() const;
+
 private:
     static const char code = 'D';
     static const int driverLayer = 1;

@@ -9,10 +9,6 @@ RideShare::RideShare()
 
 RideShare::~RideShare()
 {
-    customers->clear();
-    drivers->clear();
-    drawables->clear();
-
     delete customers;
     delete drivers;
     delete drawables;

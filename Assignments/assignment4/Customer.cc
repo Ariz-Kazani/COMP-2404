@@ -20,7 +20,6 @@ void Customer::resetNextId()
 
 void Customer::print() const
 {
-    cout << "Customer:        " << name << endl;
-    cout << "Rating:          " << rating << endl;
-    cout << "Location (x, y): " << location.getX() << ", " << location.getY() << endl;
+    cout << "Customer Details: " << endl;
+    User::print();
 }

@@ -33,9 +33,10 @@ void User::setLocation(int x, int y)
 
 void User::print() const
 {
-    cout << "User ID: " << id << endl;
-    cout << "Name: " << name << endl;
-    cout << "Rating: " << rating << endl;
+    cout << "User ID:  " << id << endl;
+    cout << "Name:     " << name << endl;
+    cout << "Rating:   " << rating << endl;
     cout << "Location: ";
     location.print();
+    cout << endl;
 }

@@ -98,6 +98,7 @@ void Controller::findRide()
     if (d == nullptr)
     {
         cout << "ERROR: DRIVER NOT FOUND!" << endl;
+        return;
     }
 
     d->setLocation(location);

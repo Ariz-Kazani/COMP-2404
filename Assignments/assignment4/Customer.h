@@ -16,6 +16,7 @@ public:
     void draw(View &view);
     static int compNames(Customer *c1, Customer *c2);
     static void resetNextId();
+
     void print() const;
 
 private:
