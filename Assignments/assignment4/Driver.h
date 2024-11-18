@@ -19,7 +19,7 @@ public:
     int getDistance(const Location &location) const;
 
     static int compRatings(Driver *d1, Driver *d2);
-    void resetNextId();
+    static void resetNextId();
 
 private:
     static const char code = 'D';

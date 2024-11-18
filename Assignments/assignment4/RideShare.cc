@@ -36,7 +36,7 @@ Customer *RideShare::getCustomer(const string &id) const
 {
     for (int i = 0; i < customers->getSize(); i++)
     {
-        if (customers->get(i)->getId() == id)
+        if (customers->get(i)->getID() == id)
         {
             return customers->get(i);
         }

@@ -15,7 +15,7 @@ public:
     Customer(const string &name, int rating, const Location &location);
     void draw(View &view);
     static int compNames(Customer *c1, Customer *c2);
-    void resetNextId();
+    static void resetNextId();
     void print() const;
 
 private:
