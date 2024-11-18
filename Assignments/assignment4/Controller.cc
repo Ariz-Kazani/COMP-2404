@@ -79,7 +79,7 @@ void Controller::findRide()
     rideShare.printCustomers();
 
     string custId;
-    cout << "Enter an ID: ";
+    cout << "Enter a valid ID: ";
     cin >> custId;
 
     Customer *c = rideShare.getCustomer(custId);
