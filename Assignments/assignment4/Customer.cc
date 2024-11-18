@@ -1,23 +1,26 @@
-
 #include "Customer.h"
-#include "Driver.h"
-#include "View.h"
-#include <iomanip>
-
-const int Customer::custLayer = 3;
 int Customer::nextId = 0;
-const char Customer::code = 'C';
 
-Customer::Customer(string n, int r, const Location& l): Drawable(custLayer), User(code, ++nextId, n, r, l){}
+Customer::Customer(const string &name, int rating, const Location &location) : User(code, ++nextId, name, rating, location), Drawable(custLayer) {}
 
-
-void Customer::print(){
-    cout<<"Customer: "<<left<<setw(10)<<name;
-    User::print();
+int Customer::compNames(Customer *c1, Customer *c2)
+{
+    return c1->name.compare(c2->name);
 }
 
-void Customer::draw(View& v){
-    //v.drawOnMap(*this);
-    v.drawCustomer(loc.x, loc.y, name[0]);
+void Customer::draw(View &view)
+{
+    view.drawCustomer(location.getX(), location.getY(), code);
 }
 
+void Customer::resetNextId()
+{
+    nextId = 0;
+}
+
+void Customer::print() const
+{
+    cout << "Customer:        " << name << endl;
+    cout << "Rating:          " << rating << endl;
+    cout << "Location (x, y): " << location.getX() << ", " << location.getY() << endl;
+}
