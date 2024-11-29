@@ -1,8 +1,14 @@
+# Ignore all files in this directory
 *
-*.zip
+
+# Except for the following files
 !Makefile
 !makefile
 !*.*
 !*/
+
+# Ignore specific files or folders
 *.o
 .vscode/
+*.zip
+results.txt
