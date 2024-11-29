@@ -1,35 +1,47 @@
 #include "Episode.h"
 
-string Episode::getPodcastTitle() const {
+ostream &operator<<(ostream &ost, const Episode &episode)
+{
+    episode.print(ost);
+    return ost;
+}
+
+string Episode::getPodcastTitle() const
+{
     return podcastTitle;
 }
 
-string Episode::getHost() const {
+string Episode::getHost() const
+{
     return host;
 }
 
-string Episode::getEpisodeTitle() const {
+string Episode::getEpisodeTitle() const
+{
     return episodeTitle;
 }
 
-string Episode::getCategory() const {
+string Episode::getCategory() const
+{
     return category;
 }
 
-string Episode::getAudio() const {
+string Episode::getAudio() const
+{
     return audio;
 }
 
-string Episode::getVideoFile() const {
+string Episode::getVideoFile() const
+{
     return videoFile;
 }
 
-void Episode::print(ostream &ost) const {
+void Episode::print(ostream &ost) const
+{
     ost << "Podcast Title: " << podcastTitle << endl;
-    ost << "Host: " << host << endl;
+    ost << "Host:          " << host << endl;
     ost << "Episode Title: " << episodeTitle << endl;
-    ost << "Category: " << category << endl;
-    ost << "Audio: " << audio << endl;
-    ost << "Video File: " << videoFile << endl;
+    ost << "Category:      " << category << endl;
+    ost << "Audio:         " << audio << endl;
+    ost << "Video File:    " << videoFile << endl;
 }
-
