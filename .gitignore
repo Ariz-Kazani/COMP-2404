@@ -1,6 +1,8 @@
 *
+*.zip
 !Makefile
 !makefile
 !*.*
 !*/
 *.o
+.vscode/
