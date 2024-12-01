@@ -7,7 +7,7 @@ Podcast::Podcast(const string &title, const string &host) : title(title), host(h
 
 Podcast::~Podcast()
 {
-    for (int i = 0; i < episodes->getSize(); i++)
+    for (int i = episodes->getSize() - 1; i >= 0; i--)
     {
         delete episodes->get(i);
     }
