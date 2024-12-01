@@ -67,7 +67,7 @@ Podcast *Podify::getPodcast(const string &title) const
     exit(1);
 }
 
-Episode *Podify::getEpisodes(const Search &s, Array<Episode *> &epArr) const
+void Podify::getEpisodes(const Search &s, Array<Episode *> &epArr) const
 {
     for (int i = 0; i < podcasts->getSize(); i++)
     {
@@ -81,7 +81,4 @@ Episode *Podify::getEpisodes(const Search &s, Array<Episode *> &epArr) const
             }
         }
     }
-
-    cout << "Episode not found" << endl;
-    exit(1);
 }

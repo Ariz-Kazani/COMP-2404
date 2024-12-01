@@ -33,5 +33,5 @@ bool HorC_Search::matches(const Episode *ep) const
 
 void HorC_Search::print(ostream &ost) const
 {
-    ost << "Host: " << host << " AND Category: " << category;
+    ost << "Host: " << host << " And Category: " << category;
 }

@@ -19,8 +19,7 @@ void VideoPlayer::play(const Episode &m, ostream &ost)
 
     string line;
 
-    // TODO: This my not be the best way to read the file
-    while (infile >> line)
+    while (getline(infile, line))
     {
         ost << line << endl;
     }

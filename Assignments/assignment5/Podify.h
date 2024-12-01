@@ -19,7 +19,7 @@ public:
     const Array<Podcast *> &getPodcasts() const;
     Podcast *getPodcast(int index) const;
     Podcast *getPodcast(const string &title) const;
-    Episode *getEpisodes(const Search &s, Array<Episode *> &epArr) const;
+    void getEpisodes(const Search &s, Array<Episode *> &epArr) const;
 
 private:
     Array<Podcast *> *podcasts;
