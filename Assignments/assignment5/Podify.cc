@@ -7,10 +7,12 @@ Podify::Podify()
 
 Podify::~Podify()
 {
-    for (int i = podcasts->getSize() - 1; i >= 0; i--)
-    {
-        delete podcasts->get(i);
-    }
+    // for (int i = podcasts->getSize() - 1; i >= 0; i--)
+    // {
+    //     delete podcasts->get(i);
+    // }
+
+    podcasts->clear();
 
     delete podcasts;
 }
@@ -20,7 +22,7 @@ void Podify::addPodcast(Podcast *p)
     podcasts->add(p);
 }
 
-void Podify::addEpisode(const string &title, Episode *e)
+void Podify::addEpisode(Episode *e, const string &title)
 {
     Podcast *p = nullptr;
 
@@ -65,7 +67,7 @@ Podcast *Podify::getPodcast(const string &title) const
     exit(1);
 }
 
-Episode *Podify::getEpisode(const Search &s, Array<Episode> &epArr) const
+Episode *Podify::getEpisodes(const Search &s, Array<Episode *> &epArr) const
 {
     for (int i = 0; i < podcasts->getSize(); i++)
     {
@@ -75,7 +77,7 @@ Episode *Podify::getEpisode(const Search &s, Array<Episode> &epArr) const
             Episode *ep = p->get(j);
             if (s.matches(ep))
             {
-                epArr.add(*ep);
+                epArr.add(ep);
             }
         }
     }

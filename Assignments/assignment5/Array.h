@@ -27,6 +27,8 @@ public:
 	int getSize() const;
 	bool isFull() const;
 
+	void clear();
+
 	Array &operator+=(const T &s)
 	{
 		return add(s);
@@ -112,6 +114,16 @@ const T &Array<T>::get(int index) const
 		exit(1);
 	}
 	return elements[index];
+}
+
+template <typename T>
+void Array<T>::clear()
+{
+	for (int i = 0; i < numElements; i++)
+	{
+		delete elements[i];
+	}
+	numElements = 0;
 }
 
 #endif

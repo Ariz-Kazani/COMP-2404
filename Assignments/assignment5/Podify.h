@@ -15,11 +15,11 @@ public:
     Podify();
     ~Podify();
     void addPodcast(Podcast *p);
-    void addEpisode(const string &title, Episode *e);
+    void addEpisode(Episode *e, const string &title);
     const Array<Podcast *> &getPodcasts() const;
     Podcast *getPodcast(int index) const;
     Podcast *getPodcast(const string &title) const;
-    Episode *getEpisode(const Search &s, Array<Episode> &epArr) const;
+    Episode *getEpisodes(const Search &s, Array<Episode *> &epArr) const;
 
 private:
     Array<Podcast *> *podcasts;

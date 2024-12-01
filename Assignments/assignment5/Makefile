@@ -3,7 +3,7 @@ testobjects = test.o View.o TestControl.o Tester.o Podify.o Podcast.o Episode.o 
 
 all: a5 a5test
 
-a4: $(objects)
+a5: $(objects)
 	g++ -o a5 $(objects)
 
 main.o: main.cc Array.h
