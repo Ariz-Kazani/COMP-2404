@@ -108,6 +108,6 @@ The application gives the option of displaying the map, which displays the locat
 
 ## Credits
 
-All code was written by Prof. Daryl Hill from Carleton University, whom designed 
+All base code was written by Prof. Daryl Hill from Carleton University, whom designed 
 the tutorials and assignments. The assignments and tutorials were complete by Ariz 
 Kazani :). 
