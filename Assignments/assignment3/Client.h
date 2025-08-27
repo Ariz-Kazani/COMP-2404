@@ -19,9 +19,14 @@ public:
     bool cloneRepo(const GetHub &getHub, int index);
     void printRepo() const;
     void printFileContents(int index) const;
+    
+    // monitoring functions
+    bool checkForChanges(const GetHub &getHub, int index) const;
+    void printChanges(const GetHub &getHub, int index) const;
 
 private:
     Repo *repo;
+    int monitoredRepoIndex;
 };
 
 #endif

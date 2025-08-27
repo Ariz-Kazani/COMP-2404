@@ -12,7 +12,9 @@ vector<string> Control::menu = {
     "Remove file\n\n Client functions",
     "Download repo",
     "Print client repo",
-    "Print file content"};
+    "Print file content",
+    "Check for repo changes",
+    "Show repo changes"};
 
 // void printRepos();
 // void printRepo();
@@ -62,6 +64,12 @@ void Control::launch()
         case 8:
             printClientFileContent();
             break;
+        case 9:
+            checkRepoChanges();
+            break;
+        case 10:
+            printRepoChanges();
+            break;
         }
     }
 }
@@ -87,6 +95,32 @@ void Control::printClientFileContent()
     cout << "Enter file number: ";
     view.getNumber(choice);
     client.printFileContents(choice);
+}
+
+void Control::checkRepoChanges()
+{
+    int choice;
+    getHub.printRepos();
+    cout << "Enter repo number to check for changes: ";
+    view.getNumber(choice);
+    
+    if (client.checkForChanges(getHub, choice))
+    {
+        cout << "Changes detected in repository!" << endl;
+    }
+    else
+    {
+        cout << "No changes detected or unable to check." << endl;
+    }
+}
+
+void Control::printRepoChanges()
+{
+    int choice;
+    getHub.printRepos();
+    cout << "Enter repo number to show changes: ";
+    view.getNumber(choice);
+    client.printChanges(getHub, choice);
 }
 
 void Control::initGetHub()

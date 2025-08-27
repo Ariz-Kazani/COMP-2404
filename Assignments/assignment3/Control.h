@@ -34,6 +34,8 @@ private:
   void downloadRepo();
   void printClientRepo();
   void printClientFileContent();
+  void checkRepoChanges();
+  void printRepoChanges();
 
   // helper function
   void initGetHub();
